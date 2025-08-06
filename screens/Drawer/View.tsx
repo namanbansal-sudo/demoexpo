@@ -9,7 +9,6 @@ export default function DrawerScreenComponent() {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text style={{ fontSize: 24, marginBottom: 16 }}>Profile</Text>
       <Text style={{ fontSize: 18, marginBottom: 32 }}>Hello, {userName}!</Text>
-      <Button title="Open Drawer" onPress={NavigationService.goToDrawer} />
     </View>
   );
 } 

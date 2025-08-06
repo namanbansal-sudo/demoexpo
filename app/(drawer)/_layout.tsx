@@ -21,43 +21,36 @@ function CustomDrawerContent(props: any) {
       <DrawerItem
         label="Home"
         focused={activeTab === 'index'}
-        onPress={() => NavigationService.navigate('/(tabs)')}
+        onPress={() => router.push('/(drawer)/(tabs)')}
       />
       <DrawerItem
         label="User"
         focused={activeTab === 'profile'}
-        onPress={() => router.push('/(tabs)/profile')}
+        onPress={() => router.push('/(drawer)/(tabs)/profile')}
       />
       <DrawerItem
-        label="Drawer"
+        label="Settings"
         focused={activeTab === 'drawer'}
-        onPress={() => NavigationService.navigate('/(tabs)/drawer')}
+        onPress={() => router.push('/(drawer)/(tabs)/drawer')}
       />
     </DrawerContentScrollView>
   );
 }
 
-export default function Layout() {
+export default function MainDrawerLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer
         drawerContent={(props) => <CustomDrawerContent {...props} />}
         screenOptions={{
-          headerShown: true,
+          headerShown: false, // Let the tabs handle their own headers
         }}
       >
         <Drawer.Screen
-          name="index"
+          name="(tabs)"
           options={{
-            drawerLabel: 'Home',
-            title: 'Overview',
-          }}
-        />
-        <Drawer.Screen
-          name="profile"
-          options={{
-            drawerLabel: 'User',
-            title: 'User Profile',
+            drawerLabel: 'Main',
+            title: 'Main',
           }}
         />
       </Drawer>
